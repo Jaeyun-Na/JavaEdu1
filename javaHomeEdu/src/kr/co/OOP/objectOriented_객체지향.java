@@ -234,5 +234,34 @@ public class objectOriented_객체지향 {
 	 */
 	
 	
+	//	클래스와 인스턴스
+	
+	/*	클래스 사용과 main()함수
+	 * 
+	 * public class Stuedent{
+	 * 	int	student;								----
+	 * 	String studentName;								|-멤버 변수	
+	 * 	int grade;										|
+	 * 	String address;								----
+	 * 
+	 * 	public String getStudentName(){				----
+	 * 		return studentName;							|
+	 * 	}												|-메서드
+	 * 	public void SetStudentName(String name){		|
+	 * 		student = name;								|
+	 * 	}											----
+	 * 
+	 * Student 클래스는 멤버 변수와 메서드로 구성되어있음.
+	 * 멤버변수는 클래스 속성을 나타내고, 매서드는 멤버 변수를 이용하여 클래스 기능을 구현함
+	 * 
+	 * 
+	 * -프로그램 시작하는 main()함수
+	 * 	자바 가상머신이 프로그램을 시작하기 휘해 호출하는 함수. 클래스 내부에 만들지만, 클래스 메서드는 아님
+	 * 	
+	 * 	main()함수에서 클래스를 사용하는 방법은 두가지임
+	 * 	1. 클래스 내부에 main()함수를 만드는것.
+	 * 	2. 외부에 테스트용 클래스를 만들어 사용하는것
+	 */
+	
 	
 }
