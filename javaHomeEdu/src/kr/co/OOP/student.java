@@ -10,6 +10,14 @@ public class student {
 	public String getStudentName() {
 		return studentName;
 	}
+	
+	public student (int studentId) {
+		this.studentId = studentId;
+	}
+
+	public student() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public static void main(String[] args) {
 		student studentAhn = new student(); // 클래스 생성
