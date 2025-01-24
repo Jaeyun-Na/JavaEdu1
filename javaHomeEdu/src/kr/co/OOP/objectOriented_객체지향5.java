@@ -29,8 +29,30 @@ public class objectOriented_객체지향5 {
 	 * 	접근제어자							설명
 	 * 	public					외부 클래스 어디에서나 접근할 수 있음.
 	 * 	protected				같은 패키지 내부와 상속 관계의 클래스
-	 * 	아무것도 없음
-	 * 	private
+	 * 	아무것도 없음				default이며 같은 클래스 내부에서만 접근가능
+	 * 	private					같은 클래스 내부에서만 접근할 수 있음.
+	 * 
+	 * 
+	 * [exTest]
+	 * MyDate와 MyDateTest 클래스 만들기
+	 * <MyDate 클래스 완성하기>
+	 * day, month, year변수는 private로 선언
+	 * 각 변수의 get, set 메서드를 public으로 만듬
+	 * MyDate(int day, int month, int year) 생성자 만듬
+	 * public boolean isValid()메서드를 만들어 날짜가 유효한지 확인
+	 * MyDateTest 클래스에서 생성한 MyDate 날짜가 유효한기 확인
+	 * 
+	 * class MyDateTest{
+	 * 	MyDate date1 = new MyDate(30, 2, 2000);
+	 * 	System.out.println(date1.isValid());
+	 * 	MyDate date2 = new MyDate(2, 10, 2006);
+	 * 	System.out.println(date2.isValid());
+	 * 	}
+	 * 
+	 * <출력 결과>
+	 * 유효하지 않은 날짜입니다.
+	 * 유효한 날짜입니다.
+	 * 
 	 */
 	
 }
