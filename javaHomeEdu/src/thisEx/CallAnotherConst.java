@@ -11,6 +11,11 @@ class Person{
 		this.name = name;
 		this.age = age;
 	}
+	
+	Person returnSelf() {
+		return this;
+	}
+	
 }
 
 
@@ -24,6 +29,11 @@ public class CallAnotherConst {
 		Person noName = new Person();
 		System.out.println(noName.name);
 		System.out.println(noName.age);
+		
+		Person p = noName.returnSelf();
+		System.out.println(p);
+		System.out.println(noName);
+		
 		
 	}
 
