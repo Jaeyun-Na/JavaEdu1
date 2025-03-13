@@ -1,5 +1,7 @@
 package kr.co.OOP;
 
+import kr.co.hiding.Student;
+
 public class TakeTrans {
 
 	public static void main(String[] args) {
@@ -15,6 +17,12 @@ public class TakeTrans {
 		studentTomas.takeSubway(subwayGreen);
 		studentTomas.showInfo();
 		subwayGreen.showInfo();
+		
+		Student4 studentEdward = new Student4("Edward",15000);
+		Taxi taxi = new Taxi("자바 운수");
+		studentEdward.takeTaxi(taxi);
+		studentEdward.showInfo();
+		taxi.showInfo();
 	}
 
 }

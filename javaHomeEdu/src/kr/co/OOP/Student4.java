@@ -18,6 +18,10 @@ public class Student4 {
 		subway.take(2000);
 		this.money -= 2000;
 	}
+	public void takeTaxi(Taxi taxi) {
+		taxi.take(10000);
+		this.money -= 10000;
+	}
 	public void showInfo() {							//학생 정보를 출력하는 메서드
 		System.out.println(studentName + "님의 남은 돈은 " +  money + "입니다.");
 	}
