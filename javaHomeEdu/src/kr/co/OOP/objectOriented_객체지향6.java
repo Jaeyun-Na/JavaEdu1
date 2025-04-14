@@ -210,5 +210,30 @@ public class objectOriented_객체지향6 {
 	 * static 변수는 인스턴스를 생성할 때마다 만들어지는 것이 아니고 클래스를 선언할 때 특정 메모리에 저장되어 모근 인스턴스가 공유하는 변수
 	 * static 변수는 인스턴스 생성과는 별개이므로 인스턴스보다 먼저 생성됨.
 	 * 그러므로 인스턴스가 아닌 클래스 이름으로도 참조하여 사용할 수 있음. 따라서 자바에서는 static변수를 클래스 변수라고 하며 StudentTest2.java코드는 다음처럼 변경 할수 있음
+	 * 
+	 * StudentTest2.java 파일처럼 static 변수 serialNumdmf studentLee.serialNum과 같이 인스턴스로 참조 할 수 있음.
+	 * static 변수는 인스턴스가 생성되지 않아도 사용 할 수 있기 떄문에 보통 student.seialNum과 같이 클래스 이름과 함께 사용함.
+	 * 
+	 * 	[static 변수는 클래스 이름으로 직접 참조함]
+	 * StudentTest2.java에서처럼 static변수를 studentLee.serialNum과 같이 사용하면 serialNum아래쪽에 노란줄이 보임.
+	 * 이것은 요류가 아닌 이변수가 static변수이므로 인스턴스 참조 변수가 아닌 클래스 이름으로 직접 참조하라는 뜻.
+	 * StudentTest3.java처럼 클래스 이름으로 직접 참조하면 노란줄이 사라짐. 이클립스에서 static변수와 static 메서드는 이탤릭체로 나타남.
+	 * 
+	 * static 변수, 정적 변수, 클래스 변수라는 3가지 용어를 사용했음.
+	 * 셋 모두 자바에서 static 변수를 의미함. 자바에서 static 변수를 클래스 변수라고 하는 이유는 인스턴스마다 생성되는 변수가 아니라 클래스에 속해 한 번만 생성되는 변수이고 이를 여러 인스턴스가 공우하기 때문임.
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 		클래스 매서드
+	 * 일반 멤ㅁ버 변수를 위한 메서드가 존재하듯 static 변수를 위한 메서드도 있음.
+	 * 이런 메서드를 'static 메서드' 또는 '클래스 메서드'라고함. serialNum 변수를 사용하는 메서드를 만들어보자.
+	 * 외부클래스에서 serialNum 변수를 직접 참조하지 못하도록 일단 private로 선언하고 이 변수에 대한 get()메서드와 set()메서드를 생성함.
+	 * Student클래스의 serialNum 변수를 private로 변경하면 기존의 StudentTest1, StudentTest2, StudentTest3에서는 직접 참조할 수 없어 오류가 발생하므로 Student2클래스를 새로 생성.
 	 */
+	
+	
+	
+	
+	
 }
