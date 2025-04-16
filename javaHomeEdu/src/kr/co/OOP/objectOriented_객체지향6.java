@@ -1,5 +1,7 @@
 package kr.co.OOP;
 
+import staticex.Student2;
+
 public class objectOriented_객체지향6 {
 
 	/*
@@ -230,10 +232,97 @@ public class objectOriented_객체지향6 {
 	 * 이런 메서드를 'static 메서드' 또는 '클래스 메서드'라고함. serialNum 변수를 사용하는 메서드를 만들어보자.
 	 * 외부클래스에서 serialNum 변수를 직접 참조하지 못하도록 일단 private로 선언하고 이 변수에 대한 get()메서드와 set()메서드를 생성함.
 	 * Student클래스의 serialNum 변수를 private로 변경하면 기존의 StudentTest1, StudentTest2, StudentTest3에서는 직접 참조할 수 없어 오류가 발생하므로 Student2클래스를 새로 생성.
+	 * 
 	 */
 	
+	/*
+	 * public class Student2 {
+	 *
+	 *private static int serialNum = 1000;					//private 변수로 변경
+	 *int studentID;
+	 *String studentName;
+	 *int grade;
+	 *String address;
+	 *
+	 *public Student2() {
+	 *	serialNum++;
+	 *	studentID = serialNum;
+	 *}
+ 	 *
+	 *public String getStudentName() {
+	 *	return studentName;
+	 *}
 	
+	 *public void setStudentName(String name) {
+	 *	this.studentName = name;
+	 *}
+	 *
+	 *public static int getSerialNum() {						//serialNum의 get()메서드
+	 *	int i = 10;
+	 *	return serialNum;
+	 *}
+	 *
+	 *public static void setSerialNum(int serialNum) {		//serialNum의 set()메서드
+	 *	Student2.serialNum = serialNum;
+	 *}
+	 *
+	 *	
+	 *}
+	 * 
+	 */
 	
+	/*
+	 * 외부 클래스에서 serialNum 값을 사용하려면 get() 메서드를 호출하고, serialNum 변수 값을 변경하려면 set() 메서드를 사용해야함.
+	 * get() 메서드와 set() 메서드를 사용하도록 변경했을 때 프로그램이 제대로 실행되는지 확인해야함 -> studentTest4 확인
+	 */
 	
+	/*
+	 *public class StudentTest4 {
+	 *
+	 *	public static void main(String[] args) {
+	 *		// TODO Auto-generated method stub
+	 *
+	 *	Student2 studentLee = new Student2();
+	 *	studentLee.setStudentName("이지원");
+	 *	System.out.println(Student2.getSerialNum());		//serialNum 값을 가져오기 위해 get()메서드를 클래스 이름으로 직접 호출
+	 *	System.out.println(studentLee.studentName + "학번 : " + studentLee.studentID);
+	 *
+	 *	Student2 studentSon = new Student2();
+	 *	studentSon.setStudentName("손기정");
+	 *	System.out.println(Student2.getSerialNum());		//serialNum 값을 가져오기 위해 get()메서드를 클래스 이름으로 직접 호출
+	 *	System.out.println(studentSon.studentName + "학번 : " + studentSon.studentID);
+	 *	}
+	 *
+	 *}
+	 * 
+	 */
+	/*
+	 * StudentTest4.java의 [System.out.println(Student2.getSerialNum());], [System.out.println(Student2.getSerialNum());] 코드는 serialNum을
+	 * 직접 참조하지 않고 getSerialNm()메서드를 호출하여 참조함.
+	 * static 메서드 또한 static 변수처럼 인스턴스 참조 변수가 아닌 클래스 이름으로 직접 호풀할 수 있음.
+	 * 
+	 */
+	/*
+	 * 		클래스 메서드와 인스턴스 변수
+	 * 클래스 메서드 내부에서는 인스턴스 변수를 사용할 수 없음.  --> Student2 클래스 매서드와 인스턴스 변수 예 확인
+	 *
+	 * getSerialNum() 메서드는 static 예억어를 붙인 클래스 메서드 임.
+	 * 이메서드는 세종유의 변수를 사용함. 가장 먼저 선언한 int i를 보자.
+	 * 이 변수는 메서드 내부에서 선언하였음. 이렇게 메서드 내부에서 선언한 변수를 그 지억에서만 사용한다고 해서 지역변수라고 함.
+	 * 지역 변수는 메서드가 호출될 때 메모리에 생성되어 메서드가 끝나면 사라지는 변수.
+	 * 따라서 이 변수는 getSerialNum() 메서드 내부에서만 사용할 수 있음. 마지만 return Serial.Num; 문장을 보면 serialNum 변수는 static 변수. 그러므로 클래스 메서드인 getSerialNum()메서드 내부에서도 사용할 수 있음.
+	 * 
+	 * 그런데 메서드 내부의 두 번째 줄에 사용한 studentName 변수는 오류가 발생함. 이변수는 Student2 클래스의 멤버 변수로, 인스턴스가 생성될 때 만들어지는 인스턴스 변수이기 떄문.
+	 * 클래스 메서드와 클래스 변수는 인스턴스가 생성되지 않아도 사용할 수 있음. --> StudentTest5
+	 * 
+	 */
 	
+	/*
+	 * 
+	 * class StudentTest5의 5행을 보면 클래스 메서드 Student2.getSerialNum()과 같이 인스턴스가 생성되지 않아도 언제든 호풀할 수 있음. studentName처럼 인스턴스가 생성되어야 메모리가 할당되는 인스턴스 변수는 클래스 메서드에서 사용할수 없음.
+	 * 
+	 * 클래스 메서드 내부에서 지역 변수와 클래스 변수는 사용할 수 있지만, 인스턴스 벼ㅛㄴ수는 사용할 수 없ㅡㅁ. 또한 클래스 메서드에서 인스턴스 변수를 자용할수 없지만, 반대로 일반 메서드에서 클래스 변수를 사용하는 것은 전혀 문제가 도지 않음.
+	 * 왜냐면 인반 메서드는 인스턴스가 생성될 때 호충되는 메서드이고, 클래스 변수는 이미 만들어진 변수이기 떄문에 일반 메서드에서도 클래스 변수를 호출할 수 있기 때문.
+	 * 
+	 */
 }
