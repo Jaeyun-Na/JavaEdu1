@@ -2,7 +2,7 @@ package kr.co.OOP;
 
 import staticex.Student2;
 
-public class objectOriented_객체지향6 {
+public class objectOriented_6_클래스객체2 {
 
 	/*
 	 * This 예약어

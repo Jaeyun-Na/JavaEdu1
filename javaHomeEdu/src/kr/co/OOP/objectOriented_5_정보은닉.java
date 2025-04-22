@@ -1,6 +1,6 @@
 package kr.co.OOP;
 
-public class objectOriented_객체지향5 {
+public class objectOriented_5_정보은닉 {
 
 	/*
 	 * 정보 은닉
