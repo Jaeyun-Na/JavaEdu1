@@ -1,6 +1,6 @@
 package kr.co.OOP;
 
-public class objectOriented_按眉瘤氢4 {
+public class objectOriented_4_积己磊 {
 	/*
 	 * 积己磊 
 	 * 

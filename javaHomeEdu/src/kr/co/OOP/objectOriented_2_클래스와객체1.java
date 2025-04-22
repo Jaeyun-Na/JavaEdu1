@@ -1,6 +1,6 @@
 package kr.co.OOP;
 
-public class objectOriented_객체지향2 {
+public class objectOriented_2_클래스와객체1 {
 	/* 
 	 * Student 클래스는 멤버 변수와 메서드로 구성되어있음.
 	 * 멤버변수는 클래스 속성을 나타내고, 매서드는 멤버 변수를 이용하여 클래스 기능을 구현함
@@ -26,7 +26,7 @@ public class objectOriented_객체지향2 {
 	  	
 	  	
 	  	public static void main(String[] args) {
-	  		objectOriented_객체지향2 studentAhn = new objectOriented_객체지향2();	//클래스 생성
+	  		objectOriented_2_클래스와객체1 studentAhn = new objectOriented_2_클래스와객체1();	//클래스 생성
 			studentAhn.studentName = "안연수";
 			
 			System.out.println(studentAhn.studentName);

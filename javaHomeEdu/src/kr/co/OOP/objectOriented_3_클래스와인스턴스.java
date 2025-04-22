@@ -1,6 +1,6 @@
 package kr.co.OOP;
 
-public class objectOriented_객체지향3 {
+public class objectOriented_3_클래스와인스턴스 {
 
 
 	private String studentName;

@@ -1,6 +1,6 @@
 package kr.co.OOP;
 
-public class objectOriented_객체지향 {
+public class objectOriented_1_클래스와객체1 {
 
 	
 	
