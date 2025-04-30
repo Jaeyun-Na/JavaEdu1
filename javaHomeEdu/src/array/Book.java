@@ -5,7 +5,7 @@ public class Book {
 	private String bookName;
 	private String author;
 	
-	//public Book() {}											//디폴트 생성자
+	public Book() {}											//디폴트 생성자
 	
 	public Book(String bookName, String author) {				//책 이름과 저자 이름을 매개변수로 받는 생성자
 		this.bookName = bookName;
