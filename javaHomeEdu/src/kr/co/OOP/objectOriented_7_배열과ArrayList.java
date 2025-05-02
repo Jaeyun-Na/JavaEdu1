@@ -250,6 +250,11 @@ public class objectOriented_7_배열과ArrayList {
 	 * 
 	 * String형으로 선언된 strArray 배열에 문자열 5개르 ㄹ저장함.
 	 * 향상된 for문을 사용해 string형 lang ㅂㅂ볍ㄴ수에 strString 배열 요소 값을 순서대로 가져와 대임. lang 변수를 출력하면 strArray 배열에 저장된 값이 순서대로 출력됨.
+	 * 
+	 * 예문- 향상된 for문을 사용 int배열 [numArray]의 요소 갑ㅄ을 순서대로 하나씩 가져와서 int형 변수 [number]에 대입하는 코드를 만들자.
+	 * int[] numArray = new int[]{1,2,3,4,5,,,6,7,8,,9,10};
+	 * 	for(int number : numArray){	}
+	 * 
 	 */
 	  	
 	  	
