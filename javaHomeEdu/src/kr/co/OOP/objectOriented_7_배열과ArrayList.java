@@ -350,6 +350,36 @@ public class objectOriented_7_배열과ArrayList {
 	 * 매개변수로 몇 번째 요소를 가져올 것인지 지정함. 14행 for문을 보면 배얄에 추가된 요소 개수만큼만 출력하기 위해 size()메서드를 사용. size() 메서드는 배열에 유효한 값이 저장된 요소 개수를 반환함. 21~23행의 향상된 for문 역시 배열의 요소 값을 출력
 	 * 
 	 * 예제) Student클래스를 이용해서 StudentArrayList 클래스를 만들고 ArrayList<Student> 자료형의 ArrayList를 선언. ArrayList에 학생 3명을 추가하고 그 정보를 출력.
+	 * (StudentArrayList.java)
+	 * 
+	 * 	7-4 배열 응용 프로그램
+	 * 
+	 * ArrayList를 사용하여 학생 성적 출력 프로그램을 구현해보자. Student 클래스와 Subject클래스를 사용.
+	 * 만약 어떤 학생이 10과목을 수강한다면 Subject 클래스형을 자료형으로 선언한 변수가 10개 필요할 검. 어떤 학생은 3과목을 수강할 수도 있고, 어떤 학생은 5과목을 수강할 수도 있음. 따라서 이러한 경우에는 배열을 사용하여 프로그램을 구현하는 것이 좋음.
+	 * Subject 클래스는 참조 자요형이므로 ArrayList를 활용해서 구현해 보자
+	 * 
+	 * 예제 시나리오
+	 * 1001학번 Lee와 1002학번 Kim, 두 학생이 있음. Lee 학생은 2과목을 수강함. 국어점수가 100점, 수학 점수가 50점.
+	 * Kim학생은 3과목 수강. 국어 70점, 수학 85점, 영어 100점.
+	 * Student 클래스와 Subject 클래스를 생성한 후 두 학생의 과목 성적과 총점을 각각 출력해보자
+	 * 
+	 * 	 Student 클래스 구현
+	 *  (package arrayList - Student.java)
+	 * 한 학생이 구상하는 과목은 여러 개 있을 수 있으므로, 7행에서 Subject 클래스형으로 ArrayList를 생성함. subjectList는 학생이 수강하는 과목을 저장할 배열임. 학생의 수강 과목을 하나씩 추가하기 위해 15~20행 addSubject() 메서드를 만듬. 매개변수로
+	 * 넘어온 과목 이름과 점수를 가지고 Subject 클래스를 생성하고, 생성한 인스턴스는 subjectList에 추가함. 그러면 이 학생의 수강 과목 정보는 subjectList에 저장됨.
+	 * 22~29행 showStudentInfo() 메서드에서는 각 과목의 성적과 총점을 추력함 향상된 for문을 사용하여 subjectList 배열 내용을 출력할 수 있음.
+	 * 
+	 * 	Subject 클래스 구현
+	 * (package arrayList - Subject.java)
+	 * Subject 클래스의 멤버 변수는 과목 이름과 성적 두 가지임. 7~18행에 구현한 메서드는 name과 scorePoint 멤버 변수의 get(), set() 메서드 임.
+	 * 
+	 * 	테스트 클래스 구현 후 결과 확인하기
+	 * 학생 두 명을 생성하고 각 학생의 과목별 성적과 총점을 출력해 보자.
+	 * (package arrayList - StudentTest.java)
+	 * 
+	 * 5행에서 studentLee를 생성. 학생 ID는 1001, 이름은 Lee. studentLee의 addSudject() 메서드를 호출하여 학생 ID가 1002, 이름 Kim인 studentKim을 9행에서 생성하고 이번에는 국어,수학,영어 3과목을 addSuject() 메서드를 사용하여 추가함.
+	 * showStudentInfo() 메서드를 호출하여 각 학생의 과목병 성적과 총점을 출력
+	 * 
 	 */					
 	  	
 	  	
