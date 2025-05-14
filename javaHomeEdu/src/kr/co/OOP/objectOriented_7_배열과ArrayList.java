@@ -380,6 +380,22 @@ public class objectOriented_7_배열과ArrayList {
 	 * 5행에서 studentLee를 생성. 학생 ID는 1001, 이름은 Lee. studentLee의 addSudject() 메서드를 호출하여 학생 ID가 1002, 이름 Kim인 studentKim을 9행에서 생성하고 이번에는 국어,수학,영어 3과목을 addSuject() 메서드를 사용하여 추가함.
 	 * showStudentInfo() 메서드를 호출하여 각 학생의 과목병 성적과 총점을 출력
 	 * 
+	 *  연습문제
+	 *  1. 배열은 [같은]자료형을 순서대로 괕리할 떄 사용하는 자료 구조.
+	 *  2. 알파벳 출력 예제에서 각 배열 요소 값을 소문자에서 대문자로 변환해 출력해보자.
+	 *  (array-exampleCharArray.java)
+	 *  3. 배열 길이가 5인 정수형 배열을 선언하고, 1~10 중 짝수만을 배열에 저장한 후 그합을 출력해보자
+	 *  (array-exampleQ3.java)
+	 *  4. 배열 길이가 5인 Dog[] 배열을 만든 후 Dog 인스턴스를 5개 생성하여 배열에 추가. for문과 향상된 for문에서 showDoginfo()메서드
+	 *     를 사용하여 배열에 구사한 dog 정보를 모두 출력해보자
+	 *  (array-exampleQ4.java)
+	 *  5.DogTestArrayList클래스를 만들어 멤버 변수로 ArrayList를 사용 Dog인스턴스를 5개 생성하여 ArrayList에 추가하고 ArrayList의
+	 *  정보를 출력하는 코드를 작성.
+	 *  (array-DogTestArrayList.java)
+	 *     
+	 *     
+	 *     
+	 *     
 	 */					
 	  	
 	  	
