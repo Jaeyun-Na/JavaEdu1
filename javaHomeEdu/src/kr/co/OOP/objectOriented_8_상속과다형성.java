@@ -131,6 +131,50 @@ public class objectOriented_8_상속과다형성 {
 	 *  상위 클래스의 변수가 메모리에 먼저 생성되기 떄문에 하위 클래스에서도 이 값들을 모두 사용할 수 있음. 08-1에서 상위 클래스의 변수를 private으로 선언한 경우에 하위 클래스에서 해당 변수를 사용할 수 없었던 건은 단지 하위 클래스에서 접근할 수 없었을 분임.
 	 *  지금까지는 하위 클래스가 생성될 떄 상위 클래스가 먼저 만들어진다는 것을 배웠음. 이제 어떤과정으로 상위 클래스가 생성되는지 알아보자.
 	 *
+	 * -부모를 부르는 예약어 super
+	 * super 예약어는 하위 클래스에서 상위 클래스로 접근할 떄 사용함. 하위 클래스는 상위 클래스이 주소,(참조 값)을 알소 있음. 이 참조값을 가지고 있는 예약어가 바로 super
+	 * this가 가기 자신의 참조 값을 가지고 있는 것과 같다고생각하면 됨. super는 상위 클래스의 생성자를 호출하는 데도 사용.
+	 * 
+	 * 상위 클래스 생성자 호출하기
+	 * CustomerTest2.java 예제를 보면 VIPCustomer만 생성하였는데 Customer 상위 크래스도 생성된것을 할 수 있음. 하위 클래스 생성자만 호출했는데 상위 클래스 생성자가 호출되는 이유는 하위 클래스 생성자에서 super()를 자동 호출하기 때문임.
+	 * super()를 호출하면 상위 클래스의 디폴트 생성자가 호출됨. 하위 클래스의 디폴트 생서자는 바이트 코드로 변환되기 전에 다음과 같이 코드가 자동으로 변경됨.
+	 * (CustomerTest2.java)
+	 * 
+	 * super 예약어로 매개변수가 있는 생성자 호쿨하기
+	 * 이런 경우를 생각해보자. Customer 클래스를 생성할 때 고객 ID와 이름을 반드시 지정해야 한다고 가정, 이런 경우에 set() 메서드로 값을 지정하는 것이 아니고, 새로운 생성자를 만들어서 매겨변수로 값을 전달받아야함.
+	 * 즉 디폴트 생성자가 아닌 매개변수가 있는 생성자를 직접 구현해야함. Customer 클래스에 새로운 생성자를 추가하고, 기존의 디폴트 생성자는 삭제하거나 주석 처리해보자.
+	 * (Customer.java)
+	 * 
+	 * Customer 클래스의  디퐁트 생성자를 없애고 새로운 생성자를 작성하면, Customer 클래스를 상속받은 VIPCustomer 클래스에서 오류가 발생함. 오류가 발생한 디폴트 생성자에 마우스를 오려 보면 다음과 같은 오류 메시지가 보임.
+	 * Implicit super constructor  Customer() is undefined, Must explicitly invoke another constructor
+	 * 이 오류 메시지는 묵시적으로 호출될 디폴트 생성자 Customer()가 정의되지 않았기 떄문에, 반드시 명싲적으로 다른 생성자를 호출해야 한다는뜻.
+	 * 
+	 * Customer 클래스를 새로 생성할 떄 고객 ID와 고객 이름을 반드시 지정하여 생성하기로했으니 VIPCustomer 클래스를 생성할 때도 이 값이 필요함. 그리고 VIP 고객만을 위한 상담원 ID까지 함께 지정해보자.
+	 * 기존 VIPCustomer 클래스의 디폴트 생성자도 지우거나 주석 처리한 후 필요한 매개변수를 포함하는 새성자를 새로 작성해보자
+	 * (VIPCustomer.java)
+	 * 
+	 * 새로운 생성자는 고객 ID, 고객 이름, 상담원 ID를 매개변수로 받음. super 예약어는 상위 클래스 생성자를 호출하는 역할을 하며, 3행 super(customerID, customerName); 문장으로 상위 클래스 생성자를 호출함.
+	 * VIPCustomer(int customerID, String customerName, int agentID) 생성자의 코드가 실제로 실행되는 형태는 다음과 같음.
+	 
+	 * public VIPCustomer(int customerID, String customerName, int agentID) {
+	 *	super(customerID, customerName);
+	 *	customerGrade = "VIP";
+	 *	bonusRatio = 0.05;
+	 *	saleRatio = 0.1;
+	 *	System.out.println("VIPCustomer() 생성자 호출");
+	 *}
+	 * 
+	 * super()를 통해 Customer(int customerID, String customerName) 상위 클래스 생성자를 호출하고 코드 순서대로 멤버 변수가 초기화됨. 상위 클래스 생성자 호출이 끝나면 VIPCustomer 하위 클래스 생성자의 내부 코드 수행이 마무리됨.
+	 * 
+	 * ^ 하위 클래스가 생성될 때는 상위 클래스의 [생성자]가 먼저 호출됨.
+	 * ^ 상위 클래스에 생성자 코드가 따로 없으면 [super()]로 상위 클래스의 디폴트 생성자가 자동으로 호출됨.
+	 * ^ 상위 클래스에 디폴트 생성자가 없고 매개변수가 있는 생성자만 있을 경우 [super()]에 매개변수를 추가하여, 매개변수가 있는 상위 클래스의 생성자를 직접 호출해야함.
+	 * 
+	 * 상위 클래스의 멤버 변수나 메서드를 참조하는 super
+	 * 상위 클래스에 선언한 멤버 변수나 메서드를 하위 클래스에서 참조할 때도 super를 사용함. this를 사용하여 자신의 멤버에 접근했던 것과 비슷. 예를 들어 VIPCustomer 클래스의 showVIPInfo() 메서드에서 상위 클래스의 showCustomerInfo() 메서드를 참조해
+	 * 담당 상담원 아이디를 추가호 출력하려고 할 떄 다음과 같이 구현할 수 있음.
+	 * 
+	 * 
 	 * 
 	 */
 }
