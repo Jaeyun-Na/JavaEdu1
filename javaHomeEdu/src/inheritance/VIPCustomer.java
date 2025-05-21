@@ -37,7 +37,8 @@ public class VIPCustomer extends Customer{								//VIPCustomer 클래스는 Custome
 	private int agentID;												//VIP 고객 상담원 아이디
 	double saleRatio;													//할인율
 	
-	public VIPCustomer() {
+	public VIPCustomer(int customerID, String customerName, int agentID) {
+		super(customerID, customerName);
 		customerGrade = "VIP";											//고객 등급	-->	오류발생이유 상위 클래스에서 private 변수이므로 오류가 발생
 		bonusRatio = 0.05;												//보너스 적립 5%
 		saleRatio = 0.1;												//할인율 10%
