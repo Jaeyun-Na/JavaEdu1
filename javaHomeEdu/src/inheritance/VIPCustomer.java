@@ -49,6 +49,12 @@ public class VIPCustomer extends Customer{								//VIPCustomer 클래스는 Custome
 		return agentID;
 	}
 	
+	@Override
+	public int calcPrice(int price) {
+		bonusPoint += price * bonusRatio;
+		return price - (int)(price * saleRatio);
+	}
+	
 }
 
 
