@@ -242,10 +242,33 @@ public class objectOriented_8_상속과다형성 {
 	 * VIPCustomer 클래스에서 calcPrice() 메서드를 재정의해 보자.
 	 * (VIPCustomer.java)
 	 * 
+	 * 하위 클래스 VIPCustomer에서 calcPrice() 메서드를 재정의 했음. 상위 클래스의 calcPrice()메서드와 매새변수의 자료형 및 개수가 같고, 반환형도 int형으로 같음.
+	 *		return price - (int)(price * saleRatio);
+	 * 위 코드는 할인율을 계산하여 정가에서 뺀 후 세일 가격을 반환함.
 	 * 
+	 * 상위 클래스의 메서드를 재정의할 때는 메서드 이름을 직접 써도 되고, 이클립스의 기능을 활용할 수도 있음. 코드에서 마우스 오른쪽 버튼을 누르고[Source -> Override/Implenment Methods..]을 누르면 메서드 선턱창이 나옴.
+	 * 상위 클래스 Customer의 메-서드 중 재정의할 메서드를 선택할 수 있음. calcPrice(int)를 선택하고 [OK]를 누르면 재정의할 메서드의 코드가 VIPCustomer 클래스에 자동으로 생성됨
 	 * 
+	 * @Override
+	 * public int  calcPrice(int price){
+	 * 	//TODO Auto-generated method stub
+	 * 	return super.calcPrice(price);
+	 * }
 	 * 
+	 * @Override 애노테이션은 '이 메서드는 재정의된 메서드입니다'라고 컴파일러에 명확히 알려주는 역활을 함.
 	 * 
+	 * [애노테이션(Annotation)이란?]
+	 * 애노테이션은 영어로는 주석이라는 의미. @ 기호와 함께 사용하며 '@애노케이션 이름'으로 표현함. 자바에서 제공하는 애노테이션은 컴파일어에게 특정한 정보를 제공해 주는 역활을 함.
+	 * 예를 들어 @Override는 이 메서드가 재정의된 매서드임을 컴파일러에게 알려 줌. 만약 메서드의 선언부가 다르다면 컴파일 오류가 발생하여 프로그래머의 실수를 막아 줌. 이렇게 미리 정의되어 있는 애노테이션을
+	 * 표준 애노테이션이라고 함. 주로 사용하는 표준 애노테이션은 다음과 같음.
+	 * 	
+	 * 		애노테이션						설명
+	 * 	   @Override			재정의된 메서드라는 정보 제공
+	 *  @Fuctionallnterface		함수형 인터페이스라는 정보 제공
+	 *    @Deprecated			이후 버전에서 사용되지 않을 수 있는 변수, 메서드에 사용됨
+	 *  @SuppressWarnings		특정 경고가 나타나지 않도록 함.
+	 *  
+	 * 이 외에도 애노테이션에 대해 좀 더 많은 정보를 추가할 수 있는 '메타 애노테이션'을 제공하고 있음.
 	 * 
 	 * 
 	 * 
