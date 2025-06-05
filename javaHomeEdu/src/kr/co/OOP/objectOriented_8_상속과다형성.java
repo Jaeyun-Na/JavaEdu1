@@ -317,7 +317,7 @@ public class objectOriented_8_상속과다형성 {
 	 * 			메서드																	| showCustomerInfo  |
 	 * 		calcPrice (재정의됨)						  OxOO335577	---> 3				|___________________|
 	 * 		showCustomerInfo (재정의되지 않음)			  Ox112233AA	---> 2				| 3 VIPCustomer클래스	|
-	 * 		getAgentID								  Ox8899BB33	---> 4					| 재정의된 calcPrice()|
+	 * 		getAgentID								  Ox8899BB33	---> 4				| 재정의된 calcPrice()|
 	 * 		(하위 클래스에서 추가된 메서드)														|___________________|
 	 * 																					| 4 VIPCustomer클래스	|
 	 * 																					| 	getAgent()		|
@@ -326,8 +326,39 @@ public class objectOriented_8_상속과다형성 {
 	 * 그림에서 보득 calcPrice() 메서드는 두 클래스에서 서로 다른 메서드 주소를 가지고 있음. 이렇게 재정의 된 메서드는 시제 인스턴스에 해당하는 메서드가 호출됨.
 	 * showCustomerInfo()와 같이 재정의되지 않은 메서드인 경우는 메서드 주소가 같으며 상위 클래스이 메서드가 호툴됨.
 	 * 
+	 * 예제를 통해 결과를 살펴보자. 가격이 10,000원인 상품이 있다. Customer 클래스로 인스턴스를 생성한 경우와 VIPCustomer 클래스로 인스턴스를 생성한 경우, 마지막으로 VIPCustomer 클래스로 인스턴스를 생성하여 Customer 클래스형으로 형 변환한 경우 각각
+	 * 얼마를 지불해야하는지 알아보자.
+	 * (OverridingTest3.java)
+	 * 
+	 * 7행에서 Customer형으로 선언하고 Customer 인스턴스를 생성하면 Customer의 메서드가 호출됨. 따라서 customerLee가 지불해야 할 가격은 할인이 안 된 10,000원임. 그리고 10행에서 VIPCustomer로 생성한 customerKim은 당연히 할인된 가격인 9,000월을
+	 * 지불함. 마지막으로 13행에서 VIPCustomer로 생성하고 Customer형으로 변환한 vc는 원래 Customer형 메서드가 호출되는 것이 맞지만, 가상 메서드 방식에 의해 VIPCustomer 인스턴스의 메서드가 호출되어 할인 가격 9,000월이 출력됨.
 	 * 
 	 * 
+	 * 					calcPrice() 재정의 안 된 경우 호출		Customer 클래스
+	 * 					------------------------------>		 calcPrice()
+	 * vc.calcPrice(); |		
+	 * 				   |									VIPCustomer 클래스
+	 * 					------------------------------>		 재정의된 calcPrice()
+	 * 					calcPrice() 재정의된 경우 호출
+	 * 
+	 * 정리해보자. 상위 클래스(Customer)에서 선언한 calcPrice()메서드가 있고 이를 하위 클래스(VIPCustomer)에서 재정의한 상태에서 하위 클래스 인스턴스(vc)가 상위 클래스로 형변환이 되었음.
+	 * 이떄 vc.calcPrice()가 호출되면, vc 변수를 선언할 때 사용한 자료형(Customer)의 메서드가 호출되는 것이 아니라 생성된 인스턴스(VIPCustomer)의 메서드가 호출됨. 이를 가상 메서드라고함. 자바의 모든 메서드는 가상메서드.
+	 * 
+	 * 
+	 * 	08-4  다형성
+	 * 
+	 * 	다형성이란?
+	 * 지금까지 설명한 묵시적 클래스 형 변환과 가상 메서드를 바탕으로 객체 지향의 중요한 특성인 다형성(polymorphism)을 학습하자.
+	 * 다형성이란 하나의 코드가 여러 자료형으로 구현되어 실행되는 것을 말함. 쉽게 말해 같은 코드에서 여어 실행 결과가 나오는 것임.
+	 * 
+	 * 			   -------------Human 클래스	
+	 * 			  |
+	 * Amimal클래스-|-------------tiger 클래스
+	 * 			  |
+	 * 			   -------------Eagle 클래스
+	 * 
+	 * 위와 같이 3개의 크래스가 Animal 클래스를 상속받는 경우를 생각해보자. Animal 클래스에 메서드를 하나 정의하고 상속받은 클래스에서 재정의함. 이를 코드로 구현하면
+	 * (polymorphism - AnimalTest.java)
 	 * 
 	 * 
 	 * 

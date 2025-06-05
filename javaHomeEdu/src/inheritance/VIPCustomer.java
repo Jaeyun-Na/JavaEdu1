@@ -42,7 +42,7 @@ public class VIPCustomer extends Customer{								//VIPCustomer 클래스는 Custome
 		customerGrade = "VIP";											//고객 등급	-->	오류발생이유 상위 클래스에서 private 변수이므로 오류가 발생
 		bonusRatio = 0.05;												//보너스 적립 5%
 		saleRatio = 0.1;												//할인율 10%
-		System.out.println("VIPCustomer() 생성자 호출");
+//		System.out.println("VIPCustomer() 생성자 호출");
 	}
 	
 	public int getAgentID() {

@@ -23,7 +23,7 @@ public class Customer {
 		this.customerName = customerName;
 		customerGrade = "SILVER";				//기본 등급
 		bonusRatio = 0.001;						//보너스 포인트 기본 적입 비율
-		System.out.println("Customer(int, String) 생성자 호출");
+//		System.out.println("Customer(int, String) 생성자 호출");
 		
 	}
 	
