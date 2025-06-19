@@ -10,7 +10,7 @@ public class GoldCustomer extends Customer{
 		saleRatio = 01;
 	}
 	
-	public int calcPrice(int price) {
+	public int calcPrice(int price) {											//재정의한 매서드
 		bonusPoint += price * bonusRatio;
 		return price - (int)(price * saleRatio);
 	}

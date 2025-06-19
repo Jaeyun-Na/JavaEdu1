@@ -1,5 +1,7 @@
 package kr.co.OOP;
 
+import polymorlphism.Customer;
+
 public class objectOriented_8_상속과다형성 {
 
 	/*
@@ -415,6 +417,7 @@ public class objectOriented_8_상속과다형성 {
 	 * # 담당 전문 상담원 없음
 	 * 
 	 * 새로운 고객 등급이 생김. 이등급의 고객은 VIP 고객과 보너스 포인트 적입률이 다르고 담당 상담원도 없음. 이 내용을 기반으로 Customer 클래스를 상속받아 GOLDCustomer 클래스를 만들어 보자.
+	 * (GoldCustomer.java)
 	 * 
 	 * 					고객(Customer) 클래스
 	 * 				아이디, 이름, 등급, 포인트, 포인트 적립율
@@ -425,8 +428,48 @@ public class objectOriented_8_상속과다형성 {
 	 * 	   담당 상담원 아이디					할인율
 	 * 		  할인율
 	 * 
+	 * GoldCustomer 클래스는 지불 가격과 보너스 포인트를 계산하는 calcPrice() 메서드만 재정의 했음. 이처럼 상속을 사용하면 새로운 기능이 추가되더라도 쉽게 수현할 수 있음.
 	 * 
+	 * -배열로 고객 5명 구현하기
+	 * 	예제:
+	 * 	회사의 고객은 현재 5명. 5명 중 VIP 1명, GOLD 2명, SILVER 2명임. 이고객들이 각각 10,000원짜리 상품을 구매했을 때의 결과를 출력
 	 * 
+	 * 고객 인스턴스가 총 5개이므로 배열에 넣어서 관리하면 편리함. 객체 배열 ArrayList는 자료형을 지정하여 선언해야함. 우리가 사용할 클래스는 Customer, GoldCustomer, VIPCustomer 세종류임.
+	 * 배열 자료형을 Customer로 지정하고, VIPCustomer 클래스와, GoldCustomer 클래스 모두 Customer에서 상속받은 클래스이므로 Customer형으로 선언함.
+	 * 이렇게 선언하면 이 배열에는 Customer, GoldCustomer, VIPCustomer를 모두 사용할 수 있음. 그리고 이 배열에 Customer 하위 클래스의 인스턴스가 추가될 때 모두 Customer형으로 묵시적 형 변환이 됨.
+	 * 
+	 * 	ArrayList<Customer> customerLissst = new ArrayList<Customer>();
+	 * 
+	 * 테스트 프로그램을 구현해 보자.
+	 * (Customer.java)
+	 * 
+	 * 6행에서 Customer형으로 객체 배열 ArrayList를 선언. 14행~18행까지 Customer 클래스와 하위 클래스 VIPCustomer, GoldCustomer의 인스턴스를 ArrayList에 추가했음.
+	 * 21행에 향상된 for문에서 향상된 for문을 사용하여 고객 정보를 출력함. 고객 정보를 출력하는 showCustomerInfo() 메서드는 재정의하지 않았으므로 Customer 클래스에 구현된 메서드가 호출됨.
+	 * 그리고 27행~31행에서 향상된 for문으로 각 고객이 지불해야 할 금액과 적립된 보너스 포인트를 출력함. 고객 등급에 따라 할인율과 적입금이 다르므로 calcPrice() 메서드는 각 클래스에 재정의 했음.
+	 * for(Customer customer : customerList)문장은 customerList 배열의 요소를 하나씩 가져와서 Customer형 변수에 넣음. 고객 정보를 ArrayList 배열에 저장할 때 Customer형으로 형 변환을 하여 추가했기 때문에 배열 요소를 하나씩 가져올 때도
+	 * Customer형으로 가져오게 됨. 고객 정보를 ArrayList 배열에 저장할 떄 Customer형으로 형 변환을 하여 추가했기 때문에 배열 요소를 하나씩 가녀올 때도 Customer형으로 가져오게 됨. 그리고 각 인스턴스가 calcPrice() 메서드를
+	 * 호출하면 현재 이 변수의 실제 인스턴스가 무엇이냐에 따라 재정의한 매서드를 각각 호출하여 게산함. 이것이 다형성.
+	 * 
+	 * 만양 재정의한 메서드가 가상 메서드 방식에 의해 자동으로 호출되지 않는다면 if-else if문을 사용하여 각 자료형에 적합한 코드를 따로 구현해야 할 것임. 게다가 새로운 등급의 고객이 추가로 필요한 경우에는 또 다른 조건을 구현해야 하므로 코드의 유지보수가 어려워짐.
+	 * 이런 경우에 상속과 다형성을 자 활용하면 복잡한 코드를 간결하게 줄일 우 있고 확장성 있는 프로그랴ㅐㅁ을 구현할 수 있음.
+	 * 
+	 * 상속은 언제 사용할까?
+	 * VIP 고객 등급을 추가하는 문제를 다시 생각해보자. 이미 Customer 크래스가 구현되어있는데 추가 요구 사항이 생김. 사실 가장 간단하게 생각해 보면, 이미 Customer클래스가 존재하므로 여기에 추가내용을 함께 구현할 수도 있음. Customer 클래스에
+	 * VIP고객의 내용도 함께 구현하는 것. 그런데 추가 기능을 이렇게 구현하면 코드가 굉장히 복잡해짐. 그 이유는 일반 등급 고객이 사용하지 않는 속성(상담원ID, 할인율 등)뿐만 아니라 VIP 고객만을 위한 서비스 내용까지 추가해야 하기 떄문.
+	 * 아래 코드는 Customer 클래스에 모든 등급의 내용을 넣어 구현한 예임.
+	 * 
+	 * if(customerGrade == "VIP"){				//할인+적립금 최대
+	 * } 
+	 * 	else if(customerGrade == "GOLD"){		//할인+적입금 중간
+	 * } 
+	 * 	else if(customerGrade == "SILVER"){		//적립만
+	 * }
+	 * 
+	 * 고객 등급에 따라 다르게 구현해야 하기 떄문에 if-else if-else문을 사용함. calcPrice() 메서드뿐 아니라 여러 다른 메서드에서도 등급에 따라 다른 구현이 필요하다며 클래스 전체에서 이러한 if-else if-else문이 많이 사용됨.
+	 * 이런 경우 고객의 등급이 하나라도 추가되거나 ㅅ삭제되면 유지보수가 매우 복잡해짐.
+	 * 
+	 * 상속을 사용하면 모든 등급에서 공통으로 사용하는 코드 부분은 상위 클래스인 Customer 클래스에 구현하고, 각 등급별 고객의 내용은 각각의 하위 클래스에 구현함. 또한 새로운 등급의 고객ㄱ이 추가되더라도 기존의 코드를 거의 수정하지 않고 새로운 클래스를 추가할 수 있음.
+	 * 따라서 프로그램이 확장성 있고 유지보수하기 좋음.
 	 * 
 	 * 
 	 * 
